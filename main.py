@@ -22,7 +22,7 @@ origins = ['*']
 app.add_middleware(
     CORSMiddleware,
     allow_origins = origins,
-    allow_credential = True,
+    allow_credentials=True, 
     allow_methods = ['*'],
     allow_headers=['*']
 )
@@ -40,7 +40,7 @@ class model_input(BaseModel):
      
 diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
 
-@app.post('diabetes_prediction')
+@app.post('/diabetes_prediction')
 
 
 def diabetes_prediction(input_parameters:model_input):
